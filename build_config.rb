@@ -23,9 +23,7 @@ MRuby::CrossBuild.new('mingw-w64') do |conf|
 
   conf.gem File.expand_path(File.dirname(__FILE__))
 
-  [conf.cc, conf.objc, conf.asm].each do |cc|
-    cc.command = 'x86_64-w64-mingw32-gcc'
-  end
+  conf.cc.command = 'x86_64-w64-mingw32-gcc'
   conf.cxx.command = 'x86_64-w64-mingw32-cpp'
   conf.linker.command = 'x86_64-w64-mingw32-gcc'
   conf.archiver.command = 'x86_64-w64-mingw32-gcc-ar'
